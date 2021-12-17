@@ -9,11 +9,35 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int _selectedIndex = 0;
+
+  List<Widget> _activities = [
+    Text('Home'),
+    Text('Films'),
+    Text('Serials'),
+  ];
+
+  onTapSelect(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarStyle.appbar_style
-    );
+        appBar: AppBarStyle.appbar_style,
+        body: _activities[_selectedIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.bubble_chart_outlined), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.movie), label: 'Films'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.computer), label: 'Serials')
+          ],
+          onTap: onTapSelect,
+        ));
   }
 }
