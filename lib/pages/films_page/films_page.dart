@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Movie {
+  int id;
   String filmImage;
   String filmName;
   String filmDate;
   String filmDescription;
 
   Movie(
-      {required this.filmImage,
+      {required this.id,
+      required this.filmImage,
       required this.filmName,
       required this.filmDate,
       required this.filmDescription});
@@ -23,6 +25,7 @@ class FilmsPage extends StatefulWidget {
 class _FilmsPageState extends State<FilmsPage> {
   final _movies = [
     Movie(
+        id: 1,
         filmImage: 'images/poster.jpg',
         filmName: 'Spider-Man: No Way Home',
         filmDate: 'December 15, 2021',
@@ -32,6 +35,7 @@ class _FilmsPageState extends State<FilmsPage> {
             'from Doctor Strange the stakes become even more dangerous, forcing him to '
             'discover what it truly means to be Spider-Man.'),
     Movie(
+        id: 2,
         filmImage: 'images/poster.jpg',
         filmName: 'Spider-Man: Europe',
         filmDate: 'September 11, 2019',
@@ -41,6 +45,7 @@ class _FilmsPageState extends State<FilmsPage> {
             'from Doctor Strange the stakes become even more dangerous, forcing him to '
             'discover what it truly means to be Spider-Man.'),
     Movie(
+        id: 3,
         filmImage: 'images/poster.jpg',
         filmName: 'Batman 1',
         filmDate: 'December 15, 2021',
@@ -50,6 +55,7 @@ class _FilmsPageState extends State<FilmsPage> {
             'from Doctor Strange the stakes become even more dangerous, forcing him to '
             'discover what it truly means to be Spider-Man.'),
     Movie(
+        id: 4,
         filmImage: 'images/poster.jpg',
         filmName: 'Super Man',
         filmDate: 'December 15, 2021',
@@ -59,6 +65,7 @@ class _FilmsPageState extends State<FilmsPage> {
             'from Doctor Strange the stakes become even more dangerous, forcing him to '
             'discover what it truly means to be Spider-Man.'),
     Movie(
+        id: 5,
         filmImage: 'images/poster.jpg',
         filmName: 'Avengers',
         filmDate: 'December 15, 2021',
@@ -78,7 +85,7 @@ class _FilmsPageState extends State<FilmsPage> {
       _filteredMovie = _movies.where((Movie movie) {
         return movie.filmName.toLowerCase().contains(query.toLowerCase());
       }).toList();
-    }else{
+    } else {
       _filteredMovie = _movies;
     }
     setState(() {});
@@ -89,6 +96,11 @@ class _FilmsPageState extends State<FilmsPage> {
     super.initState();
     _filteredMovie = _movies;
     _searchController.addListener(_searchMovie);
+  }
+
+  onFilmTap(int index) {
+    final id = _movies[index].id;
+    Navigator.of(context).pushNamed('/main_page/film', arguments: id);
   }
 
   @override
@@ -164,9 +176,7 @@ class _FilmsPageState extends State<FilmsPage> {
                     Material(
                       color: Colors.transparent,
                       child: InkWell(
-                        onTap: () {
-                          print('tapped');
-                        },
+                        onTap: () => onFilmTap(index),
                         borderRadius: BorderRadius.circular(10),
                       ),
                     )
