@@ -12,12 +12,6 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
-  List<Widget> _activities = [
-    Text('Home'),
-    FilmsPage(),
-    Text('Serials'),
-  ];
-
   onTapSelect(int index) {
     setState(() {
       _selectedIndex = index;
@@ -28,7 +22,17 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarStyle.appbar_style,
-        body: _activities[_selectedIndex],
+        /* IndexSt ack запоминает позицию скролла при переключении экрана;
+        При этом работают три вкладки одновременно, что жрёт больше ресурсов. 
+        * */
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: [
+            Text('Home'),
+            FilmsPage(),
+            Text('Serials'),
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
           items: [

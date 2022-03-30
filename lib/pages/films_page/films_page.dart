@@ -108,6 +108,7 @@ class _FilmsPageState extends State<FilmsPage> {
     return Stack(
       children: [
         ListView.builder(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             padding: EdgeInsets.only(top: 70),
             itemCount: _filteredMovie.length,
             itemBuilder: (BuildContext context, int index) {
