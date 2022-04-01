@@ -22,8 +22,8 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarStyle.appbar_style,
-        /* IndexSt ack запоминает позицию скролла при переключении экрана;
-        При этом работают три вкладки одновременно, что жрёт больше ресурсов. 
+        /* IndexStack запоминает позицию скролла при переключении экрана;
+        При этом работают три вкладки одновременно, что жрёт больше ресурсов.
         * */
         body: IndexedStack(
           index: _selectedIndex,
