@@ -25,8 +25,8 @@ class AuthModel extends ChangeNotifier{
       notifyListeners();
       return;
     }
-    _errorMessage == null;
-    _isAuthProgress == true;
+    _errorMessage = null;
+    _isAuthProgress = true;
     notifyListeners();
     String? sessionId;
     try {
@@ -34,7 +34,7 @@ class AuthModel extends ChangeNotifier{
     }catch(e){
       _errorMessage = 'Неправильный логин или пароль';
     }
-    _isAuthProgress == false;
+    _isAuthProgress = false;
     if(_errorMessage != null){
       notifyListeners();
       return;

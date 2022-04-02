@@ -79,8 +79,17 @@ class FormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = context.read<AuthModel>();
     final modelButton = context.watch<AuthModel>();
-    final onPressed = modelButton.canStartAuth == true ? () => modelButton.auth(context) : null;
-    final child = modelButton.isAuthProgress == true ? CircularProgressIndicator(strokeWidth: 2,) : Text('Login');
+    final onPressed = modelButton.canStartAuth == true
+        ? () => modelButton.auth(context)
+        : null;
+    final child = modelButton.isAuthProgress == true
+        ? SizedBox(
+            height: 18,
+            width: 18,
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+            ))
+        : Text('Login');
     return Column(
       children: [
         Row(
