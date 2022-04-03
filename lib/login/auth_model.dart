@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_the_movie_database/data_providers/session_data_provider.dart';
 import 'package:flutter_the_movie_database/domain/api_client.dart';
+import 'package:flutter_the_movie_database/routes.dart';
 
 class AuthModel extends ChangeNotifier{
   final _apiClient = ApiClient();
@@ -45,7 +46,7 @@ class AuthModel extends ChangeNotifier{
       return;
     }
     await _sessionDataProvider.setSessionId(sessionId);
-    Navigator.of(context).pushReplacementNamed('/main_page');
+    Navigator.of(context).pushReplacementNamed(RoutesKeys.main_page);
 
   }
 

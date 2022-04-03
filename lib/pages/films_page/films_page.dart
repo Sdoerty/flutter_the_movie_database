@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_the_movie_database/routes.dart';
 
 class Movie {
   int id;
@@ -100,7 +101,7 @@ class _FilmsPageState extends State<FilmsPage> {
 
   onFilmTap(int index) {
     final id = _movies[index].id;
-    Navigator.of(context).pushNamed('/main_page/film', arguments: id);
+    Navigator.of(context).pushNamed(RoutesKeys.film, arguments: id);
   }
 
   @override

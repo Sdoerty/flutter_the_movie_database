@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_the_movie_database/data_providers/session_data_provider.dart';
 
 class AppBarStyle {
 
@@ -13,7 +14,7 @@ class AppBarStyle {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
+          TextButton(onPressed: () => SessionDataProvider().setSessionId(null), child: Column(
             children: [
               Text(
                 'THE',
@@ -28,7 +29,7 @@ class AppBarStyle {
                 style: appBarTextStyle,
               ),
             ],
-          )
+          ))
         ],
       ));
 }
