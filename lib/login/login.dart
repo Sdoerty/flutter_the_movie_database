@@ -114,10 +114,10 @@ class FormWidget extends StatelessWidget {
               prefixIcon: Icon(Icons.person),
               labelText: 'Login',
               border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(16))),
         ),
         SizedBox(
-          height: 25,
+          height: 15,
         ),
         TextFormField(
           controller: model.passwordTextController,
@@ -126,10 +126,10 @@ class FormWidget extends StatelessWidget {
               prefixIcon: Icon(Icons.lock),
               labelText: 'Password',
               border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(16))),
         ),
         SizedBox(
-          height: 35,
+          height: 25,
         ),
         Row(
           children: [
