@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_the_movie_database/login/auth_model.dart';
 import 'package:flutter_the_movie_database/login/login.dart';
 import 'package:flutter_the_movie_database/pages/film/film.dart';
+import 'package:flutter_the_movie_database/pages/films_page/movie_list_model.dart';
 import 'package:flutter_the_movie_database/pages/main_page/main_page.dart';
 import 'package:provider/provider.dart';
 

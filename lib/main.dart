@@ -30,7 +30,8 @@ class RootApp extends StatelessWidget {
               unselectedItemColor: Colors.blueAccent,
               selectedItemColor: Colors.white)),
       routes: mainRoutes.routes,
-      initialRoute: mainRoutes.initialRoute(main_model.isAuth),
+      initialRoute: "/",
+      // initialRoute: mainRoutes.initialRoute(main_model.isAuth),
     );
   }
 }
